@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CalendarView">
+        <attr name="weekBg" format="color"/>
+        <attr name="weekFg" format="color"/>
+        <attr name="weekSize" format="dimension"/>
+        <attr name="daySize" format="dimension"/>
+        <attr name="isScroll" format="boolean"/>
+        <attr name="noSignBg" format="color"/>
+        <attr name="signBg" format="color"/>
+        <attr name="noSignFg" format="color"/>
+        <attr name="signFg" format="color"/>
+    </declare-styleable>
+</resources>

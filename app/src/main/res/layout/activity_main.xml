@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.earthsun.calendarview.MainActivity"
+    android:orientation="vertical">
+
+
+    <com.earthsun.calendarview.calendarView.CalendarView
+        android:id="@+id/calendar_view_sign"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        app:weekBg="@color/colorPrimary"
+        app:weekSize="15sp"
+        app:daySize="15sp"
+        app:weekFg="@color/white"
+        app:noSignFg="@color/black"
+        app:signFg="@color/red"
+        android:layout_margin="10dp">
+
+    </com.earthsun.calendarview.calendarView.CalendarView>
+    <Button
+        android:id="@+id/btn_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="签到"/>
+</LinearLayout>
