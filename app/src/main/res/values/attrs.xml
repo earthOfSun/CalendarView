@@ -10,5 +10,6 @@
         <attr name="signBg" format="color"/>
         <attr name="noSignFg" format="color"/>
         <attr name="signFg" format="color"/>
+        <attr name="weekDayHeight" format="dimension"/>
     </declare-styleable>
 </resources>
