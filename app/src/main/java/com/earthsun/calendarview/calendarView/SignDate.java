@@ -8,10 +8,18 @@ import java.io.Serializable;
 
 public class SignDate implements Serializable {
 
-    private int x;
-    private int y;
-    private boolean isSign;
+    private int coluIndex;
+    private int rowIndex;
+    private DateType dateType;
     private int day;
+
+    public DateType getDateType() {
+        return dateType;
+    }
+
+    public void setDateType(DateType dateType) {
+        this.dateType = dateType;
+    }
 
     public int getDay() {
         return day;
@@ -21,27 +29,20 @@ public class SignDate implements Serializable {
         this.day = day;
     }
 
-    public int getX() {
-        return x;
+    public int getColuIndex() {
+        return coluIndex;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setColuIndex(int coluIndex) {
+        this.coluIndex = coluIndex;
     }
 
-    public int getY() {
-        return y;
+    public int getRowIndex() {
+        return rowIndex;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setRowIndex(int rowIndex) {
+        this.rowIndex = rowIndex;
     }
 
-    public boolean isSign() {
-        return isSign;
-    }
-
-    public void setSign(boolean sign) {
-        isSign = sign;
-    }
 }

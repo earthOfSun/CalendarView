@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 List<Integer> sign = new ArrayList<>();
-                sign.add(1);
+                sign.add(4);
                 sign.add(6);
                 calendarView.setTime(1525164868000l);
                 calendarView.setSignDays(sign);

@@ -216,19 +216,35 @@ public class DateHandle {
         for (int i = 1; i <= monthDays; i++) {
             monthOfDay = new Date(getYear(time) - 1900, getMonth(time) - 1, i);
             long monthOfDayTime = monthOfDay.getTime();
+            int month = getMonth(monthOfDayTime);
+            int year = getYear(monthOfDayTime);
+            int day = getDay(monthOfDayTime);
+            int onTimeDay = getDay(time);
+            int onTimeMonth = getMonth(time);
+            int onTimeYear = getYear(time);
             int weekDay = getWeekDay(monthOfDayTime);
             int rowIndex = getRowIndex(monthOfDayTime);
             SignDate signDate = new SignDate();
+
             if (datas != null)
                 for (Integer signTime : datas) {
                     if (i == signTime) {
-                        signDate.setSign(true);
+                        signDate.setDateType(DateType.SIGNED);
                         break;
-                    } else signDate.setSign(false);
-                }
 
-            signDate.setX(weekDay);
-            signDate.setY(rowIndex);
+                    } else {
+                        signDate.setDateType(DateType.UNSIGNED);
+
+                    }
+                }
+            else {
+                signDate.setDateType(DateType.UNSIGNED);
+            }
+            if (onTimeDay == day && onTimeMonth == month && onTimeYear == year) {
+                signDate.setDateType(DateType.WAITING);
+            }
+            signDate.setColuIndex(weekDay);
+            signDate.setRowIndex(rowIndex);
             signDate.setDay(i);
             dates.add(signDate);
 
@@ -236,9 +252,9 @@ public class DateHandle {
                 getLastMonthDays(weekDay);
 
             }
-//            if (i == monthDays) {
-//                getNextMonthDays(weekDay, rowIndex);
-//            }
+            if (i == monthDays) {
+                getNextMonthDays(weekDay, rowIndex);
+            }
         }
 //        if (lastMonthDays != null)
 //            for (SignDate signDate : lastMonthDays) {
@@ -247,28 +263,38 @@ public class DateHandle {
         return dates;
     }
 
-//    /**
-//     * 获取下个月初始时间天数
-//     *
-//     * @param weekDay
-//     * @param rowIndex
-//     */
-//    public List<SignDate> getNextMonthDays(int weekDay, int rowIndex) {
-//        List<SignDate> lastMonthDays = new ArrayList<>();
-//        int count = 0;
-//        if (rowIndex == 4) {
-//            count = 13 - weekDay;
-//        } else count = 6 - weekDay;
-//        for (int i = 1; i <= count; i++) {
-//            SignDate signDate = new SignDate();
-//            if (count >7){
-//                signDate.setY();
-//            }
-//            signDate.setDay(i);
-//
-//        }
-//    }
-
+    /**
+     * 获取下个月初始时间天数
+     *
+     * @param weekDay
+     * @param rowIndex
+     */
+    public List<SignDate> getNextMonthDays(int weekDay, int rowIndex) {
+        List<SignDate> lastMonthDays = new ArrayList<>();
+        int count = 0;
+        if (rowIndex == 4) {
+            count = 13 - weekDay;
+        } else count = 6 - weekDay;
+        Date monthOfDay;
+        for (int i = 1; i <= count; i++) {
+            monthOfDay = new Date(getYear(time) - 1900, getMonth(time), i);
+            long time = monthOfDay.getTime();
+            int weekDayIndex = getWeekDay(time);
+            SignDate signDate = new SignDate();
+            if (i > 6 - weekDay) {
+                signDate.setRowIndex(rowIndex + 1);
+                signDate.setColuIndex(weekDayIndex);
+                signDate.setDay(i);
+            } else {
+                signDate.setDay(i);
+                signDate.setColuIndex(weekDayIndex);
+                signDate.setRowIndex(rowIndex);
+            }
+            signDate.setDateType(DateType.UNSIGNED);
+            lastMonthDays.add(signDate);
+        }
+        return lastMonthDays;
+    }
 
 
     /**
@@ -283,8 +309,9 @@ public class DateHandle {
         for (int i = 0; i < weekday; i++) {
             SignDate signDate = new SignDate();
             signDate.setDay(monthDays - i);
-            signDate.setX(weekday - i - 1);
-            signDate.setY(0);
+            signDate.setColuIndex(weekday - i - 1);
+            signDate.setRowIndex(0);
+            signDate.setDateType(DateType.UNSIGNED);
             lastMonthDays.add(signDate);
         }
         return lastMonthDays;
