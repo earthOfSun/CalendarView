@@ -4,6 +4,7 @@
         <attr name="weekBg" format="color"/>
         <attr name="weekFg" format="color"/>
         <attr name="weekSize" format="dimension"/>
+        <attr name="weekHeight" format="dimension"/>
         <attr name="daySize" format="dimension"/>
         <attr name="isScroll" format="boolean"/>
         <attr name="needOval" format="boolean"/>
