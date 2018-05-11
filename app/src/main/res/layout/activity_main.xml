@@ -1,51 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.earthsun.calendarview.MainActivity"
-    android:background="@color/red"
-    >
-
-    <TextView
-        android:id="@+id/tv_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2018年5月"
-        android:textColor="@color/white"
-        android:layout_margin="10dp"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="连续签到4天"
-        android:textColor="@color/white"
-        android:layout_margin="10dp"/>
-    <com.earthsun.calendarview.calendarView.CalendarView
-        android:id="@+id/calendar_view_sign"
+    android:background="@mipmap/bj"
+    android:orientation="vertical"
+    tools:context="com.earthsun.calendarview.MainActivity">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:weekBg="@color/colorPrimary"
-        app:weekSize="10sp"
-        app:daySize="15sp"
-        app:weekFg="@color/white"
-        app:noSignFg="@color/black"
-        app:signFg="@color/red"
-        android:layout_margin="10dp"
-        app:signBitmap="@mipmap/ic_launcher"
-        app:onDayBitmap="@mipmap/location_blue"
-        app:weekHeight="20dp"
-        android:layout_below="@id/tv_date"
-        android:background="@color/white">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="18dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_gravity="center_vertical"
+            android:textSize="12sp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_gravity="center_vertical"
+            android:textSize="12sp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:textSize="12sp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:textSize="12sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp">
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@mipmap/gold_coin1"
+            android:scaleType="fitXY"/>
+        <ImageView
+            android:layout_width="29dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/gold_coin1_line"/>
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@mipmap/gold_coin1"
+            android:scaleType="fitXY"/>
+        <ImageView
+            android:layout_width="29dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/gold_coin1_line"/>
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@mipmap/gold_coin1"
+            android:scaleType="fitXY"/>
+        <ImageView
+            android:layout_width="29dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/gold_coin1_line"/>
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@mipmap/gold_coin1"
+            android:scaleType="fitXY"/>
 
-    </com.earthsun.calendarview.calendarView.CalendarView>
+    </LinearLayout>
     <Button
         android:id="@+id/btn_sign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="签到"
-        android:layout_below="@+id/calendar_view_sign"/>
+        android:layout_below="@+id/calendar_view_sign"
+        android:text="签到" />
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawableLeft="@mipmap/calendar"
+            android:drawablePadding="10px"
+            android:text="2018年5月"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:text="连续签到4天"
+            android:textColor="@color/white" />
+
+        <com.earthsun.calendarview.calendarView.CalendarView
+            android:id="@+id/calendar_view_sign"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/tv_date"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            app:daySize="18sp"
+            app:needOval="false"
+            app:noSignFg="@color/black"
+            app:onDayBitmap="@mipmap/sameday"
+            app:signBitmap="@mipmap/day_signed"
+            app:signFg="@color/red"
+            app:weekBg="@color/colorPrimary"
+            app:weekFg="@color/white"
+            app:weekHeight="40dp"
+            app:weekSize="15sp">
+
+        </com.earthsun.calendarview.calendarView.CalendarView>
+    </RelativeLayout>
+
+
+
+</LinearLayout>
