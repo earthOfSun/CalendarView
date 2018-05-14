@@ -3,6 +3,7 @@
     <declare-styleable name="CalendarView">
         <attr name="weekBg" format="color"/>
         <attr name="weekFg" format="color"/>
+        <attr name="lineColor" format="color"/>
         <attr name="weekSize" format="dimension"/>
         <attr name="weekHeight" format="dimension"/>
         <attr name="daySize" format="dimension"/>
